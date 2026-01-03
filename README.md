@@ -4,7 +4,7 @@
 <img width="1888" height="966" alt="image" src="https://github.com/user-attachments/assets/9f4933d0-51c9-4fdf-a900-cb74f34993eb" />
 <img width="1336" height="705" alt="image" src="https://github.com/user-attachments/assets/8fb3be14-245e-4326-bc39-4ac0299b8c9b" />
 <img width="1893" height="511" alt="image" src="https://github.com/user-attachments/assets/fab54028-afd5-4eec-98c4-f1093c368b76" />
-![Uploading image.png…]()
+<img width="1918" height="622" alt="image" src="https://github.com/user-attachments/assets/a2aab1e1-9a74-4425-b91b-d1734d202e22" />
 
 Steps to Create a GitHub Connector in Harness
 Step 1: Navigate to Connectors
@@ -224,26 +224,18 @@ Expected output:
 NAME                                 READY   STATUS    RESTARTS   AGE
 kubernetes-delegate-xxxxxx           1/1     Running   0          1m
 
-Step 6 — Test Connectivity From Harness
+Step 6 — Use Delegate in Harness Kubernetes Connector
 
-Go to Harness UI → Account Settings → Connectors → New Connector → Kubernetes
+Go to Harness → Project Settings → Connectors → New Connector → Kubernetes
 
-Choose Use Delegate
+Details:
 
-Select the namespace: harness-delegate-ng
+Connectivity: “Use the credentials of a specific Harness Delegate”
 
-Test connection — should succeed
+Delegate: select kubernetes-delegate
 
-This connects Harness SaaS to your local Minikube cluster via the Delegate.
+Namespace: harness-delegate-ng (or leave blank for default)
 
-Step 7 — Use Delegate in Pipelines
+Click Test Connection → Success
 
-Now you can create:
-
-Harness Service → Reference your Spring Boot manifests
-
-Environment → Kubernetes connector using delegate
-
-CD Pipeline → Deploy via delegate
-
-Delegate acts as a bridge, so Harness SaaS can manage your Minikube pods safely.
+Click Save
