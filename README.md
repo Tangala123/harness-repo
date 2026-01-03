@@ -8,6 +8,10 @@
 <img width="1866" height="868" alt="image" src="https://github.com/user-attachments/assets/8a6d78e3-e112-4a24-82fa-c2baa9dc7a53" />
 <img width="1795" height="735" alt="image" src="https://github.com/user-attachments/assets/fca7a769-e2c8-42e1-81b4-0d7386c1fa19" />
 <img width="1658" height="923" alt="image" src="https://github.com/user-attachments/assets/1e5feb00-929a-4d07-b282-b4f67033f267" />
+<img width="1745" height="892" alt="image" src="https://github.com/user-attachments/assets/d8abbb13-954a-403d-a0f6-ac6eade09c0f" />
+<img width="1451" height="825" alt="image" src="https://github.com/user-attachments/assets/811fa4d1-2a2b-49e5-be8d-2b39755911d9" />
+<img width="1400" height="472" alt="image" src="https://github.com/user-attachments/assets/0940de65-e901-404c-8ac6-e224b5692ca6" />
+<img width="1682" height="792" alt="image" src="https://github.com/user-attachments/assets/9759ad03-1aed-4ca4-8b61-a88f5174ae07" />
 
 Steps to Create a GitHub Connector in Harness
 Step 1: Navigate to Connectors
