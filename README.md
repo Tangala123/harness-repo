@@ -161,3 +161,88 @@ Use Docker Hub Access Tokens, not passwords
 Store tokens in Harness Secrets
 
 Avoid using the latest tag in production
+
+
+tep 1 — Create Namespace for Delegate
+kubectl create namespace harness-delegate-ng
+
+
+This ensures all delegate resources are isolated.
+
+Step 2 — Prepare harness-delegate.yml
+
+You already have this YAML (from Harness).
+
+It contains:
+
+Namespace
+
+ClusterRoleBinding
+
+Secret (DELEGATE_TOKEN)
+
+Deployment
+
+HPA (HorizontalPodAutoscaler)
+
+CronJob for upgrades
+
+If you need, you can download YAML from Harness Delegate docs.
+
+Step 3 — Apply the YAML
+kubectl apply -f harness-delegate.yml
+
+
+Verify namespace resources:
+
+kubectl get all -n harness-delegate-ng
+
+
+You should see the deployment (initially ContainerCreating)
+
+Secret, ConfigMap, CronJob, etc.
+
+Step 4 — Watch Pod Status
+kubectl get pods -n harness-delegate-ng -w
+
+
+✅ Expected transitions:
+
+ContainerCreating → Running
+
+If you see ImagePullBackOff → check disk space (should be fixed now)
+
+If ErrImagePull → check Docker registry access / credentials
+
+Step 5 — Verify Delegate is Running
+kubectl get pods -n harness-delegate-ng
+
+
+Expected output:
+
+NAME                                 READY   STATUS    RESTARTS   AGE
+kubernetes-delegate-xxxxxx           1/1     Running   0          1m
+
+Step 6 — Test Connectivity From Harness
+
+Go to Harness UI → Account Settings → Connectors → New Connector → Kubernetes
+
+Choose Use Delegate
+
+Select the namespace: harness-delegate-ng
+
+Test connection — should succeed
+
+This connects Harness SaaS to your local Minikube cluster via the Delegate.
+
+Step 7 — Use Delegate in Pipelines
+
+Now you can create:
+
+Harness Service → Reference your Spring Boot manifests
+
+Environment → Kubernetes connector using delegate
+
+CD Pipeline → Deploy via delegate
+
+Delegate acts as a bridge, so Harness SaaS can manage your Minikube pods safely.
