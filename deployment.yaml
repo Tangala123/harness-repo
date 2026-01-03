@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: springboot-container
-          image: tangalalakshmi/spring-boot-app:v1
+          image: tangalalakshmi/spring-boot-app:v2
           ports:
             - containerPort: 8080
